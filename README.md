@@ -46,6 +46,11 @@ This system utilizes **Singular Value Decomposition (SVD)** from the **Surprise*
 
 ---
 
+## App Screenshot  
+![Movie Recommender Screenshot](screenshot.png)  
+
+---
+
 ## Machine Learning Approach
 This recommendation system is built using **Collaborative Filtering**, which predicts user preferences based on past interactions.  
 - **Matrix Factorization (SVD)** is used to reduce dimensionality and improve recommendation accuracy.  
