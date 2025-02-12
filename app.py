@@ -3,6 +3,14 @@ import pandas as pd
 from surprise import Dataset, Reader, SVD
 from collections import Counter
 
+# Check if the dataset is accessible
+try:
+    ratings = pd.read_csv("ratings_small.csv")
+    print(f"✅ Dataset Loaded Successfully: {ratings.shape}")  # Prints dataset size
+except Exception as e:
+    print(f"❌ Dataset Load Error: {e}")  # Prints error message if dataset fails to load
+
+
 # 📌 Title
 st.title("🎬 Movie Recommendation System")
 
