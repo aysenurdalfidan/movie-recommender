@@ -3,30 +3,21 @@ import pandas as pd
 from surprise import Dataset, Reader, SVD
 from collections import Counter
 
-# Check if the dataset is accessible
-try:
-    ratings = pd.read_csv("ratings_small.csv")
-    print(f"✅ Dataset Loaded Successfully: {ratings.shape}")  # Prints dataset size
-except Exception as e:
-    print(f"❌ Dataset Load Error: {e}")  # Prints error message if dataset fails to load
-
-
-# 📌 Title
 st.title("🎬 Movie Recommendation System")
 
-# 📌 User ID input
+# User ID input
 user_id = st.number_input("Enter User ID:", min_value=1, step=1)
 
-# 📌 Load MovieLens dataset
+# Load MovieLens dataset
 @st.cache_data
 def load_data():
-    ratings = pd.read_csv("ratings.csv")  # Change file name if needed
-    movies = pd.read_csv("movies.csv")    # Change file name if needed
+    ratings = pd.read_csv("ratings_small.csv")
+    movies = pd.read_csv("movies.csv")
     return ratings, movies
 
 ratings, movies = load_data()
 
-# 📌 Generate recommendations when button is clicked
+# Generate recommendations when button is clicked
 if st.button("Show Recommendations"):
     if user_id in ratings["userId"].values:
         # Get movies rated by the user
@@ -71,7 +62,7 @@ if st.button("Show Recommendations"):
         top_movie_ids = [pred.iid for pred in top_recommendations]
         recommended_movies = movies[movies["movieId"].isin(top_movie_ids)][["title", "genres"]]
 
-        # 📌 Display results
+        # Display results
         st.subheader(f"Recommended Movies for User {user_id}:")
         st.dataframe(recommended_movies)
     else:
