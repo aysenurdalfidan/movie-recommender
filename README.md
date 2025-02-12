@@ -60,9 +60,31 @@ This recommendation system is built using **Collaborative Filtering**, which pre
 
 ---
 
-## Technologies Used
-- **Python** (Data Processing & Model Training)  
-- **Surprise (SVD Algorithm)** (Collaborative Filtering)  
-- **Streamlit** (Web UI for recommendations)  
-- **Pandas, NumPy** (Data Manipulation)  
-- **Scikit-learn (Cosine Similarity for Movie Similarity Calculation)**
+## Case Study: Challenges & Solutions
+### **Handling Large Datasets Efficiently**
+- **Challenge:** The MovieLens 25M dataset is massive, making it computationally expensive to process all ratings.
+- **Solution:** Filtered out movies with **less than 10 ratings** and kept only movies rated by **at least 50 users** to ensure reliable recommendations.
+
+### **Optimizing Model Performance**
+- **Challenge:** The initial model suffered from high computational costs and slow training times.
+- **Solution:** Implemented **SVD with hyperparameter tuning** and optimized filtering (keeping only the top 1000 unseen movies for each user).
+
+### **Balancing Personalization & Popularity**
+- **Challenge:** A purely collaborative filtering approach sometimes recommended obscure movies.
+- **Solution:** Integrated **genre-based filtering**, ensuring that recommendations align with a user's preferred genres while still considering overall movie popularity.
+
+---
+
+## Results & Impact
+**Achieved RMSE:** ~0.777 (lower error means better recommendations).  
+**Successfully personalized recommendations** by analyzing user preferences dynamically.  
+**Improved efficiency** by reducing dataset size and focusing on high-quality movies.  
+**Deployed an interactive Streamlit app** that allows real-time movie suggestions.  
+
+---
+
+## Learnings & Takeaways
+- **Data preprocessing is crucial** for scalable and effective recommendation systems.
+- **Combining collaborative filtering with content-based approaches** (genre filtering) enhances recommendation quality.
+- **Reducing the dataset smartly** (e.g., filtering by rating count) can significantly **boost performance** without sacrificing accuracy.
+- **Building an interactive UI (Streamlit)** makes machine learning models more accessible and user-friendly.
