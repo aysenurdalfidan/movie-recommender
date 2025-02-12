@@ -25,8 +25,8 @@ To use the full dataset, download it from the link above and replace `ratings_sm
 
 ---
 
-## 🚀 Running the Streamlit App
-After installing dependencies, launch the application with:
+## Running the Streamlit App
+Launch the application with:
 
 ```bash
 streamlit run app.py
