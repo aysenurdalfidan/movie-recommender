@@ -1,7 +1,6 @@
 streamlit
 pandas
 numpy
-surprise
-matplotlib
-seaborn
-joblib
+scikit-learn
+surprise==0.1
+Cython
